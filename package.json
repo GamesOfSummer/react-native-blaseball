@@ -6,7 +6,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "install-npm-packages": "npm install",
+    "check-npm-packages": "ncu",
+    "update-npm-packages": "ncu -u"
   },
   "jest": {
     "preset": "jest-expo"
