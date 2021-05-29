@@ -3,8 +3,13 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { useSelector } from "react-redux";
 
 export default function TabOneScreen() {
+
+
+  const counter = useSelector(state => state);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Fuck yeah blaseball</Text>
