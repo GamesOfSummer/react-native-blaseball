@@ -1,15 +1,15 @@
-import { DefaultPictures, Picture } from '../types/picture';
-import { pictureActionsEnum } from './pictureActions';
+import { DefaultFeed, Feed } from '../types/feed';
+import { feedActionsEnum } from './feedActions';
 
-const initialState = DefaultPictures();
+const initialState = DefaultFeed();
 
-const pictureReducer = (state: Picture, action: any) => {
+const feedReducer = (state: Feed, action: any) => {
     if (state === undefined || action === undefined) {
         return initialState;
     }
 
     switch (action.type) {
-        case pictureActionsEnum.setPictures: {
+        case feedActionsEnum.setFeed: {
             const pictures = action.value;
             return { ...state, pictures };
         }
@@ -18,4 +18,4 @@ const pictureReducer = (state: Picture, action: any) => {
     }
 };
 
-export default pictureReducer;
+export default feedReducer;

@@ -1,14 +1,23 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { callAsyncGetFeed } from '../redux/feedActions';
 
 export default function TabOneScreen() {
 
 
   const counter = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(callAsyncGetFeed());
+    
+  }, []);
+
+ 
 
   return (
     <View style={styles.container}>

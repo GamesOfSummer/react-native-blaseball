@@ -18,45 +18,30 @@ export const setPictures = (pictures: Pictures) => ({
 
 export function* asyncGetFeed(): any {
     try {
-        const headerParams = {
-            Authorization: `563492ad6f9170000100000196cbe16d24264bd39f0ea60e3f1faa0b`,
-        };
-
-        const apiCall = () => {
-            return axios
-                .get(
-                    'https://api.pexels.com/v1/search?query=nature&size=medium&orientation=landscape&per_page=8',
-                    {
-                        headers: headerParams,
-                    }
-                )
-                .then((response: { data: any }) => response.data)
-                .catch((err: any) => {
-                    throw err;
-                });
-        };
-
-        const pictures = yield call(apiCall);
-        // eslint-disable-next-line no-console
-        console.log(
-            '🚀 ~ file: pictureActions.ts ~ line 36 ~ function*asyncGetPictures ~ user',
-            pictures
-        );
-
-        yield put({
-            type: feedActionsEnum.setFeed,
-            value: pictures.photos,
-        });
+    
+while(true)
+{
+    console.log('yess');
+    yield delay(1000);
+        
+    yield put({
+        type: feedActionsEnum.setFeed,
+        value: new Date().getTime,
+    });
+}
+        
+console.log('yesss');
 
     } catch (e) {
         throw new Error(e.message);
     }
 }
 
-export const callAsyncGetPictures = () => ({
+export const callAsyncGetFeed = () => ({
     type: feedActionsEnum.asyncGetFeed,
 });
 
-export function* watchAsyncGetPictures() {
+export function* watchAsyncGetFeed() {
+    console.log('yes');
     yield takeLatest(feedActionsEnum.asyncGetFeed, asyncGetFeed);
 }
