@@ -1,7 +1,5 @@
 export interface FeedObject {
-    url: string;
-    photographer: string;
-    src: { medium: string };
+    feed: string;
 }
 
 export interface Feed {
