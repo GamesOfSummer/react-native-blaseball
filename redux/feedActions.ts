@@ -37,7 +37,15 @@ const getEvent = (function()
     'Yusef Fenestrate batting for the Lift.',
 'Yusef Fenestrate hits a Single!', 
 'Gerund Pantheocide batting for the Lift.', 
-'Gerund Pantheocide hit a ground out to Nicholas Mora.'];
+'Gerund Pantheocide hit a ground out to Nicholas Mora.',
+'Nandy Slumps is Elsewhere.',
+'Strike, looking. 0-1',
+'Ball. 1-1',
+'Ball. 2-1',
+'Ball. 3-1',
+'Strike, looking. 3-2',
+'Elwin McGhee hit a ground out to Aldon Cashmoney IV.'
+];
     let newIndex = random(0, array.length - 1);
   
       return array[newIndex];

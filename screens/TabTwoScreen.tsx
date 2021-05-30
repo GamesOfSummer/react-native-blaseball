@@ -9,14 +9,6 @@ import { random } from 'lodash';
 
 export default function TabTwoScreen() {
 
-  const counter = useSelector(state => state);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    //dispatch(callAsyncGetFeed());
-    dispatch(clearFeed());
-  }, []);
-
 
   const formattedOutput = (text : string) =>
   {
@@ -36,11 +28,6 @@ return(
       <Text style={styles.title}>Snacks</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
-
-      <button
-      className="counter-action decrement"
-      onClick={() => dispatch(clearFeed()) }> Clear Cache
-    </button>
 
       {formattedOutput('Peanuts')}
       {formattedOutput('Snake Oil')}
