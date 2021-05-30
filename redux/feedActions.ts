@@ -25,11 +25,12 @@ export const setFeed = (feedObject : string) => ({
 });
 
 
-const getEvent = (index: number) =>
+const getEvent = (function()
 {
-    let newIndex = index;
-    const eventsArray = (newIndex : number) =>
-    {
+    let newIndex = 0;
+   
+    return function(){
+        newIndex++;
         const array = ['Play ball!', 
         'Top of 1, Tokyo Lift batting.', 
         'Yusef Fenestrate batting for the Lift.',
@@ -40,27 +41,28 @@ const getEvent = (index: number) =>
 
         if(newIndex > array.length)
         {
-            newIndex = newIndex - array.length;
+            newIndex = newIndex - array.length - 1;
         }
 
-        return [array][newIndex];
+        return array[newIndex];
     }
-
-    return eventsArray(newIndex);
-}
+});
 
 
 
 export function* asyncGetFeed(): any {
     try {
     
+let test = getEvent();
+
 while(true)
 {
+    yield delay(1000);
     yield put({
         type: feedActionsEnum.setFeed,
-        value: getEvent(0),
+        value: test(),
     });
-    yield delay(5000);
+   
 }
     } catch (e) {
         throw new Error(e.message);

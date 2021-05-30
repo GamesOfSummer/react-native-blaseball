@@ -11,14 +11,10 @@ const feedReducer = (state: Feed, action: any) => {
 
     switch (action.type) {
         case feedActionsEnum.setFeed: {
-            console.log('setFeed - ' + action.value);
-            
             return {...state,
             feedObjects: [...state.feedObjects, {feed: action.value}]};
         }
-        case feedActionsEnum.clearFeed: {
-            console.log('clearFeed - ');
-            
+        case feedActionsEnum.clearFeed: {            
             return {...state, ...['test']};
         }
         default:

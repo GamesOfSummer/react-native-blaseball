@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { head } from 'lodash';
+import { tail } from 'lodash';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ import { FeedObject } from '../types/feed';
 
 export default function TabOneScreen() {
 
-  const feedState = useSelector(state => state) as Store;
+  const state = useSelector(state => state) as Store;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,9 +19,10 @@ export default function TabOneScreen() {
 
 
   const lastFeed = () => {
-    if(feedState?.feed?.feedObjects)
+    if(state?.feed?.feedObjects && state.feed.feedObjects.length > 0)
     {
-      return head(feedState.feed.feedObjects)?.feed;
+      const length2 = state.feed.feedObjects.length - 1;
+      return state.feed.feedObjects[length2] ? state.feed.feedObjects[length2].feed.toString() : 'Starting...';
     }
     else
     {
@@ -31,9 +32,8 @@ export default function TabOneScreen() {
  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fuck yeah blaseball</Text>
+      <Text style={styles.title}>Heck yeah, blaseball</Text>
       <Text style={styles.title}>{lastFeed()}</Text>
-      <Text style={styles.title}>{feedState.feed.feedObjects.length}</Text>
     </View>
   );
 }

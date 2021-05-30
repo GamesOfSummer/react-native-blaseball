@@ -37,11 +37,7 @@ export function* asyncGetPictures(): any {
         };
 
         const pictures = yield call(apiCall);
-        // eslint-disable-next-line no-console
-        console.log(
-            '🚀 ~ file: pictureActions.ts ~ line 36 ~ function*asyncGetPictures ~ user',
-            pictures
-        );
+        
 
         yield put({
             type: pictureActionsEnum.setPictures,
