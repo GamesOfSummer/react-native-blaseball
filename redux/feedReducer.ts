@@ -14,8 +14,12 @@ const feedReducer = (state: Feed, action: any) => {
             return {...state,
             feedObjects: [...state.feedObjects, {feed: action.value}]};
         }
+        case feedActionsEnum.setFeed2: {
+            return {...state,
+            feedObjects2: [...state.feedObjects2, {feed: action.value}]};
+        }
         case feedActionsEnum.clearFeed: {            
-            return {...state, ...['test']};
+            return initialState;
         }
         default:
             return state;

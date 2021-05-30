@@ -24,11 +24,26 @@ export default function TabOneScreen() {
     {
       const length2 = state.feed.feedObjects.length - 1;
       const valid = () => {return (state.feed.feedObjects[length2] && state.feed.feedObjects[length2].feed);}
-      return valid() ? state.feed.feedObjects[length2].feed.toString() : 'Starting...';
+      return valid() ? state.feed.feedObjects[length2].feed.toString() : 'Play Ball!';
     }
     else
     {
-      return 'Booting up';
+      return 'Play Ball!';
+    }
+  }
+
+
+
+  const lastFeed2 = () => {
+    if(state?.feed?.feedObjects2 && state.feed.feedObjects2.length > 0)
+    {
+      const length2 = state.feed.feedObjects2.length - 1;
+      const valid = () => {return (state.feed.feedObjects2[length2] && state.feed.feedObjects2[length2].feed);}
+      return valid() ? state.feed.feedObjects2[length2].feed.toString() : 'Play Ball!';
+    }
+    else
+    {
+      return 'Play Ball!';
     }
   }
 
@@ -42,6 +57,17 @@ return(
 </div>
 )
   }
+
+  const formattedOutput2 = () =>
+  {
+return(
+  <div style={{padding: '10px 10px 50px 10px'}}>
+<div style={{border: '1px solid #3d3d3d', padding: '10px 10px 30px 10px'}}>
+<Text style={styles.title}>{lastFeed2()}</Text>
+</div>
+</div>
+)
+  }
  
   return (
     <View style={styles.container}>
@@ -50,10 +76,9 @@ return(
      
  
         {formattedOutput()}
-        {formattedOutput()}
-        {formattedOutput()}
-        {formattedOutput()}
-        {formattedOutput()}
+        {formattedOutput2()}
+     
+     
       
     </View>
   );

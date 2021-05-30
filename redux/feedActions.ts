@@ -11,6 +11,7 @@ const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export enum feedActionsEnum {
     clearFeed = 'clearFeed',
     setFeed = 'setFeed',
+    setFeed2 = 'setFeed2',
     asyncGetFeed = 'asyncGetFeed',
 }
 
@@ -24,43 +25,41 @@ export const setFeed = (feedObject : string) => ({
     feedObject,
 });
 
+export const setFeed2 = (feedObject : string) => ({
+    type: feedActionsEnum.setFeed2,
+    feedObject,
+});
 
 const getEvent = (function()
 {
-    let newIndex = 0;
-   
-    return function(){
-        newIndex++;
-        const array = ['Play ball!', 
-        'Top of 1, Tokyo Lift batting.', 
-        'Yusef Fenestrate batting for the Lift.',
-    'Yusef Fenestrate hits a Single!', 
-    'Gerund Pantheocide batting for the Lift.', 
-    'Gerund Pantheocide hit a ground out to Nicholas Mora.'];
-
-
-        if(newIndex > array.length)
-        {
-            newIndex = newIndex - array.length - 1;
-        }
-
-        return array[newIndex];
-    }
+    const array = [ 
+    'Top of 1, Tokyo Lift batting.', 
+    'Yusef Fenestrate batting for the Lift.',
+'Yusef Fenestrate hits a Single!', 
+'Gerund Pantheocide batting for the Lift.', 
+'Gerund Pantheocide hit a ground out to Nicholas Mora.'];
+    let newIndex = random(0, array.length - 1);
+  
+      return array[newIndex];
+    
 });
-
 
 
 export function* asyncGetFeed(): any {
     try {
     
-let test = getEvent();
 
 while(true)
 {
-    yield delay(5000);
+    yield delay(3000);
     yield put({
         type: feedActionsEnum.setFeed,
-        value: test(),
+        value: getEvent(),
+    });
+
+    yield put({
+        type: feedActionsEnum.setFeed2,
+        value: getEvent(),
     });
    
 }
