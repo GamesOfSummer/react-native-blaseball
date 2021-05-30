@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { callAsyncGetFeed, clearFeed } from '../redux/feedActions';
 import { Store } from '../types/store';
 import { FeedObject } from '../types/feed';
+import { color } from 'react-native-reanimated';
 
 export default function TabOneScreen() {
 
@@ -30,11 +31,30 @@ export default function TabOneScreen() {
       return 'Booting up';
     }
   }
+
+  const formattedOutput = () =>
+  {
+return(
+  <div style={{padding: '10px 10px 50px 10px'}}>
+<div style={{border: '1px solid #3d3d3d', padding: '10px 10px 30px 10px'}}>
+<Text style={styles.title}>{lastFeed()}</Text>
+</div>
+</div>
+)
+  }
  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Heck yeah, blaseball</Text>
-      <Text style={styles.title}>{lastFeed()}</Text>
+      <Text style={styles.separator}></Text>
+     
+ 
+        {formattedOutput()}
+        {formattedOutput()}
+        {formattedOutput()}
+        {formattedOutput()}
+        {formattedOutput()}
+      
     </View>
   );
 }
@@ -44,10 +64,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'black'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    backgroundColor: '#3d3d3d',
+    padding: '10px 10px 10px 10px',
+    color: 'white'
   },
   separator: {
     marginVertical: 30,

@@ -57,7 +57,7 @@ let test = getEvent();
 
 while(true)
 {
-    yield delay(1000);
+    yield delay(5000);
     yield put({
         type: feedActionsEnum.setFeed,
         value: test(),
