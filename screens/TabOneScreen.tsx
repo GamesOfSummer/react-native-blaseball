@@ -22,7 +22,8 @@ export default function TabOneScreen() {
     if(state?.feed?.feedObjects && state.feed.feedObjects.length > 0)
     {
       const length2 = state.feed.feedObjects.length - 1;
-      return state.feed.feedObjects[length2] ? state.feed.feedObjects[length2].feed.toString() : 'Starting...';
+      const valid = () => {return (state.feed.feedObjects[length2] && state.feed.feedObjects[length2].feed);}
+      return valid() ? state.feed.feedObjects[length2].feed.toString() : 'Starting...';
     }
     else
     {
