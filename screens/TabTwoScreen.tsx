@@ -24,10 +24,10 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Snacks</Text>
       <View style={styles.separator} />
-
+      {/* 
       {formattedOutput("Peanuts")}
       {formattedOutput("Snake Oil")}
-      {formattedOutput("Pickles")}
+      {formattedOutput("Pickles")} */}
     </View>
   );
 }

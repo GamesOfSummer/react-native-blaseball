@@ -24,7 +24,7 @@ export default function HallOfFlame() {
         <Text style={styles.title}>Hall of Flame</Text>
         <Text style={styles.separator}></Text>
 
-        {formattedOutput("August Mina")}
+        {/* {formattedOutput("August Mina")}
         {formattedOutput("Chorby Soul")}
         {formattedOutput("Sebastian Telephone")}
         {formattedOutput("August Mina")}
@@ -35,7 +35,7 @@ export default function HallOfFlame() {
         {formattedOutput("Sebastian Telephone")}
         {formattedOutput("August Mina")}
         {formattedOutput("Chorby Soul")}
-        {formattedOutput("Sebastian Telephone")}
+        {formattedOutput("Sebastian Telephone")} */}
       </ScrollView>
     </View>
   );

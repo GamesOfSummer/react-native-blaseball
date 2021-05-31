@@ -14,37 +14,40 @@ export default function TabOneScreen() {
   }, []);
 
   const lastFeed = () => {
-    if (state?.feed?.feedObjects && state.feed.feedObjects.length > 0) {
-      const length2 = state.feed.feedObjects.length - 1;
-      const valid = () => {
-        return (
-          state.feed.feedObjects[length2] &&
-          state.feed.feedObjects[length2].feed
-        );
-      };
-      return valid()
-        ? state.feed.feedObjects[length2].feed.toString()
-        : "Play Ball!";
-    } else {
-      return "Play Ball!";
-    }
+    return "Play Ball!";
+    // if (state?.feed?.feedObjects && state.feed.feedObjects.length > 0) {
+    //   const length2 = state.feed.feedObjects.length - 1;
+    //   const valid = () => {
+    //     return (
+    //       state.feed.feedObjects[length2] &&
+    //       state.feed.feedObjects[length2].feed
+    //     );
+    //   };
+    //   // return valid()
+    //   //   ? state.feed.feedObjects[length2].feed.toString()
+    //   //   : "Play Ball!";
+    //   return "what";
+    // } else {
+    //   return "Play Ball!";
+    // }
   };
 
   const lastFeed2 = () => {
-    if (state?.feed?.feedObjects2 && state.feed.feedObjects2.length > 0) {
-      const length2 = state.feed.feedObjects2.length - 1;
-      const valid = () => {
-        return (
-          state.feed.feedObjects2[length2] &&
-          state.feed.feedObjects2[length2].feed
-        );
-      };
-      return valid()
-        ? state.feed.feedObjects2[length2].feed.toString()
-        : "Play Ball!";
-    } else {
-      return "Play Ball!";
-    }
+    return "Play Ball!";
+    // if (state?.feed?.feedObjects2 && state.feed.feedObjects2.length > 0) {
+    //   const length2 = state.feed.feedObjects2.length - 1;
+    //   const valid = () => {
+    //     return (
+    //       state.feed.feedObjects2[length2] &&
+    //       state.feed.feedObjects2[length2].feed
+    //     );
+    //   };
+    //   return valid()
+    //     ? state.feed.feedObjects2[length2].feed.toString()
+    //     : "Play Ball!";
+    // } else {
+    //   return "Play Ball!";
+    // }
   };
 
   const formattedOutput = () => {
@@ -84,8 +87,8 @@ export default function TabOneScreen() {
       <Text style={styles.title}>Heck yeah, blaseball</Text>
       <Text style={styles.separator}></Text>
 
-      {formattedOutput()}
-      {formattedOutput2()}
+      {/* {formattedOutput()}
+      {formattedOutput2()} */}
     </View>
   );
 }
