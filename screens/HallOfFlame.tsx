@@ -1,29 +1,25 @@
 import React from "react";
-import { StyleSheet, ScrollView, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 export default function HallOfFlame() {
   const formattedOutput = (value: string) => {
     return (
-      <View>
-        <View style={{ paddingHorizontal: 10 }}>
-          <View
-            style={{
-              paddingHorizontal: 10,
-            }}
-          >
-            <Text style={styles.title}>{value}</Text>
-          </View>
+      <View style={{ paddingHorizontal: 10 }}>
+        <View
+          style={{
+            paddingHorizontal: 10,
+          }}
+        >
+          <Text style={styles.title}>{value}</Text>
         </View>
       </View>
     );
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Hall of Flame</Text>
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.title}>Hall of Flame</Text>
-        <Text style={styles.separator}></Text>
-
         {formattedOutput("August Mina")}
         {formattedOutput("Chorby Soul")}
         {formattedOutput("Sebastian Telephone")}
@@ -37,7 +33,7 @@ export default function HallOfFlame() {
         {formattedOutput("Chorby Soul")}
         {formattedOutput("Sebastian Telephone")}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -48,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "black",
   },
-  scrollView: { width: "500px" },
+  scrollView: {},
   title: {
     fontSize: 20,
     fontWeight: "bold",
