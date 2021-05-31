@@ -14,49 +14,46 @@ export default function TabOneScreen() {
   }, []);
 
   const lastFeed = () => {
-    return "Play Ball!";
-    // if (state?.feed?.feedObjects && state.feed.feedObjects.length > 0) {
-    //   const length2 = state.feed.feedObjects.length - 1;
-    //   const valid = () => {
-    //     return (
-    //       state.feed.feedObjects[length2] &&
-    //       state.feed.feedObjects[length2].feed
-    //     );
-    //   };
-    //   // return valid()
-    //   //   ? state.feed.feedObjects[length2].feed.toString()
-    //   //   : "Play Ball!";
-    //   return "what";
-    // } else {
-    //   return "Play Ball!";
-    // }
+    if (state?.feed?.feedObjects && state.feed.feedObjects.length > 0) {
+      const length2 = state.feed.feedObjects.length - 1;
+      const valid = () => {
+        return (
+          state.feed.feedObjects[length2] &&
+          state.feed.feedObjects[length2].feed
+        );
+      };
+      return valid()
+        ? state.feed.feedObjects[length2].feed.toString()
+        : "Play Ball!";
+    } else {
+      return "Play Ball!";
+    }
   };
 
   const lastFeed2 = () => {
-    return "Play Ball!";
-    // if (state?.feed?.feedObjects2 && state.feed.feedObjects2.length > 0) {
-    //   const length2 = state.feed.feedObjects2.length - 1;
-    //   const valid = () => {
-    //     return (
-    //       state.feed.feedObjects2[length2] &&
-    //       state.feed.feedObjects2[length2].feed
-    //     );
-    //   };
-    //   return valid()
-    //     ? state.feed.feedObjects2[length2].feed.toString()
-    //     : "Play Ball!";
-    // } else {
-    //   return "Play Ball!";
-    // }
+    if (state?.feed?.feedObjects2 && state.feed.feedObjects2.length > 0) {
+      const length2 = state.feed.feedObjects2.length - 1;
+      const valid = () => {
+        return (
+          state.feed.feedObjects2[length2] &&
+          state.feed.feedObjects2[length2].feed
+        );
+      };
+      return valid()
+        ? state.feed.feedObjects2[length2].feed.toString()
+        : "Play Ball!";
+    } else {
+      return "Play Ball!";
+    }
   };
 
   const formattedOutput = () => {
     return (
       <View>
-        <View style={{ margin: 10 }}>
+        <View style={{ paddingHorizontal: 10 }}>
           <View
             style={{
-              margin: "10px 10px 30px 10px",
+              paddingHorizontal: 10,
             }}
           >
             <Text style={styles.title}>{lastFeed()}</Text>
@@ -69,10 +66,10 @@ export default function TabOneScreen() {
   const formattedOutput2 = () => {
     return (
       <View>
-        <View style={{ margin: "10px 10px 50px 10px" }}>
+        <View style={{ paddingHorizontal: 10 }}>
           <View
             style={{
-              margin: "10px 10px 30px 10px",
+              paddingHorizontal: 10,
             }}
           >
             <Text style={styles.title}>{lastFeed2()}</Text>
@@ -86,9 +83,8 @@ export default function TabOneScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Heck yeah, blaseball</Text>
       <Text style={styles.separator}></Text>
-
-      {/* {formattedOutput()}
-      {formattedOutput2()} */}
+      {formattedOutput()}
+      {formattedOutput2()}
     </View>
   );
 }
