@@ -25,42 +25,36 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="League"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{ activeTintColor: "black" }}
     >
       <BottomTab.Screen
         name="League"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="baseball" color={color} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Snacks"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="pizza" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="HallOfFlame"
+        name="Hall Of Flame"
         component={HallOfFlame}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="flame" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Broken"
+        name="???"
         component={NotFoundScreen}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="help" color={color} />,
         }}
       />
     </BottomTab.Navigator>

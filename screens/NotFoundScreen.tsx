@@ -23,20 +23,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
-    margin: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
     backgroundColor: "#fff",
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: "#2e78b7",
   },
   tinyLogo: {
     width: 150,

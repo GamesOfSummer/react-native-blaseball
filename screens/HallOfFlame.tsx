@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView, ScrollView, Text, View } from "react-native";
 export default function HallOfFlame() {
   const formattedOutput = (value: string) => {
     return (
-      <View style={{ paddingHorizontal: 10 }}>
+      <View style={{ paddingVertical: 20 }}>
         <View
           style={{
             paddingHorizontal: 10,
@@ -20,6 +20,18 @@ export default function HallOfFlame() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Hall of Flame</Text>
       <ScrollView style={styles.scrollView}>
+        {formattedOutput("August Mina")}
+        {formattedOutput("Chorby Soul")}
+        {formattedOutput("Sebastian Telephone")}
+        {formattedOutput("August Mina")}
+        {formattedOutput("Chorby Soul")}
+        {formattedOutput("Sebastian Telephone")}
+        {formattedOutput("August Mina")}
+        {formattedOutput("Chorby Soul")}
+        {formattedOutput("Sebastian Telephone")}
+        {formattedOutput("August Mina")}
+        {formattedOutput("Chorby Soul")}
+        {formattedOutput("Sebastian Telephone")}
         {formattedOutput("August Mina")}
         {formattedOutput("Chorby Soul")}
         {formattedOutput("Sebastian Telephone")}

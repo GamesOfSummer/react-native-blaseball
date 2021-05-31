@@ -1,85 +1,76 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-import { call, put, takeLatest, takeEvery } from 'redux-saga/effects';
-import axios from 'axios';
-import { Pictures } from '../types/picture';
-import { FeedObject } from '../types/feed';
-import { random } from 'lodash';
+import { call, put, takeLatest, takeEvery } from "redux-saga/effects";
+import axios from "axios";
+import { Pictures } from "../types/picture";
+import { FeedObject } from "../types/feed";
+import { random } from "lodash";
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 export enum feedActionsEnum {
-    clearFeed = 'clearFeed',
-    setFeed = 'setFeed',
-    setFeed2 = 'setFeed2',
-    asyncGetFeed = 'asyncGetFeed',
+  clearFeed = "clearFeed",
+  setFeed = "setFeed",
+  setFeed2 = "setFeed2",
+  asyncGetFeed = "asyncGetFeed",
 }
-
 
 export const clearFeed = () => ({
-    type: feedActionsEnum.clearFeed
+  type: feedActionsEnum.clearFeed,
 });
 
-export const setFeed = (feedObject : string) => ({
-    type: feedActionsEnum.setFeed,
-    feedObject,
+export const setFeed = (feedObject: string) => ({
+  type: feedActionsEnum.setFeed,
+  feedObject,
 });
 
-export const setFeed2 = (feedObject : string) => ({
-    type: feedActionsEnum.setFeed2,
-    feedObject,
+export const setFeed2 = (feedObject: string) => ({
+  type: feedActionsEnum.setFeed2,
+  feedObject,
 });
 
-const getEvent = (function()
-{
-    const array = [ 
-    'Top of 1, Tokyo Lift batting.', 
-    'Yusef Fenestrate batting for the Lift.',
-'Yusef Fenestrate hits a Single!', 
-'Gerund Pantheocide batting for the Lift.', 
-'Gerund Pantheocide hit a ground out to Nicholas Mora.',
-'Nandy Slumps is Elsewhere.',
-'Strike, looking. 0-1',
-'Ball. 1-1',
-'Ball. 2-1',
-'Ball. 3-1',
-'Strike, looking. 3-2',
-'Elwin McGhee hit a ground out to Aldon Cashmoney IV.'
-];
-    let newIndex = random(0, array.length - 1);
-  
-      return array[newIndex];
-    
-});
+const getEvent = function () {
+  const array = [
+    "Top of 1, Tokyo Lift batting.",
+    "Yusef Fenestrate batting for the Lift.",
+    "Yusef Fenestrate hits a Single!",
+    "Gerund Pantheocide batting for the Lift.",
+    "Gerund Pantheocide hit a ground out to Nicholas Mora.",
+    "Nandy Slumps is Elsewhere.",
+    "Strike, looking. 0-1",
+    "Ball. 1-1",
+    "Ball. 2-1",
+    "Ball. 3-1",
+    "Strike, looking. 3-2",
+    "Elwin McGhee hit a ground out to Aldon Cashmoney IV.",
+  ];
+  let newIndex = random(0, array.length - 1);
 
+  return array[newIndex];
+};
 
 export function* asyncGetFeed(): any {
-    try {
-    
-
-while(true)
-{
-    yield delay(3000);
-    yield put({
+  try {
+    while (true) {
+      yield delay(5000);
+      yield put({
         type: feedActionsEnum.setFeed,
         value: getEvent(),
-    });
-
-    yield put({
+      });
+      yield put({
         type: feedActionsEnum.setFeed2,
         value: getEvent(),
-    });
-   
-}
-    } catch (e) {
-        throw new Error(e.message);
+      });
     }
+  } catch (e) {
+    throw new Error(e.message);
+  }
 }
 
 export const callAsyncGetFeed = () => ({
-    type: feedActionsEnum.asyncGetFeed,
+  type: feedActionsEnum.asyncGetFeed,
 });
 
 export function* watchAsyncGetFeed() {
-    yield takeEvery(feedActionsEnum.asyncGetFeed, asyncGetFeed);
+  yield takeEvery(feedActionsEnum.asyncGetFeed, asyncGetFeed);
 }

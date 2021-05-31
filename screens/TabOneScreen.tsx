@@ -50,14 +50,13 @@ export default function TabOneScreen() {
   const formattedOutput = () => {
     return (
       <View>
-        <View style={{ paddingHorizontal: 10 }}>
-          <View
-            style={{
-              paddingHorizontal: 10,
-            }}
-          >
-            <Text style={styles.title}>{lastFeed()}</Text>
-          </View>
+        <View
+          style={{
+            backgroundColor: "#3d3d3d",
+            paddingHorizontal: 10,
+          }}
+        >
+          <Text style={styles.title}>{lastFeed()}</Text>
         </View>
       </View>
     );
@@ -66,14 +65,13 @@ export default function TabOneScreen() {
   const formattedOutput2 = () => {
     return (
       <View>
-        <View style={{ paddingHorizontal: 10 }}>
-          <View
-            style={{
-              paddingHorizontal: 10,
-            }}
-          >
-            <Text style={styles.title}>{lastFeed2()}</Text>
-          </View>
+        <View
+          style={{
+            backgroundColor: "#3d3d3d",
+            paddingHorizontal: 10,
+          }}
+        >
+          <Text style={styles.title}>{lastFeed2()}</Text>
         </View>
       </View>
     );
@@ -81,9 +79,13 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Heck yeah, blaseball</Text>
       <Text style={styles.separator}></Text>
       {formattedOutput()}
+      <Text style={styles.separator}></Text>
+      {formattedOutput2()}
+      <Text style={styles.separator}></Text>
+      {formattedOutput()}
+      <Text style={styles.separator}></Text>
       {formattedOutput2()}
     </View>
   );
